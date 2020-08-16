@@ -1,0 +1,612 @@
+body,
+div,
+ul,
+li,
+h1,
+h2,
+form,
+input,
+p,
+th,
+td {
+  margin: 0;
+  padding: 0;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+
+ul li {
+  list-style: none;
+}
+
+
+h1,
+h2
+ {
+  font-size: 100%;
+  font-weight: normal;
+}
+
+
+
+footer,
+header,
+main {
+  display: block;
+}
+
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Nunito', sans-serif;; /*nazov fontu*/
+  font-size: 14px;
+  height: 100%;
+}
+
+div,
+p,
+a {
+    -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+h1 {
+  font-size: 42px;
+  line-height: 44.8px;
+  text-align: center;
+  margin-top: 1em;
+  margin-bottom: 1.5em;
+}
+
+h2 {
+  font-size: 28px;
+  line-height: 30.8px;
+  margin-bottom: 1em;
+}
+
+::-moz-selection {
+  background: #222;
+  color: aliceblue;
+}
+
+::selection { /* výber písma na stránke a podfarbenie písma*/
+  background: #222;
+  color: aliceblue;
+}
+a {
+  font-size: 20px;
+  margin-bottom: 2em;
+}
+p {
+  font-size: 19.6px;
+  line-height: 22.4px;
+}
+
+.container {
+ -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-flex: 2;
+  -ms-flex: 2;
+  flex: 2;
+  color: #222;
+  background: #fff;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+.container a {
+  color: black;
+}
+
+.wrapper {
+  -ms-flex-item-align: center;
+  align-self: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  max-width: 900px;
+  width: 100%;
+}
+.wrapper_win {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+/* Sudoku tabulka */
+.table,
+.row {	/*tvorba mriežky*/
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  padding:0;
+}
+
+.table {
+  font-size: 21px;
+  background-color: #f2f2f2;  /*farba pozadia tabuľky*/
+  margin: 0.5em auto;
+  max-width: 900px;
+  min-width: 576px;
+  width: 100%;
+  
+ 
+}
+
+.row { /*riadok bloku*/
+  border: 2px solid #000;  /*#000000 je komplet čierna, použitá u mriežok a písma hráča*/
+}
+
+.row div { /*jednotliva bunka obsahujúca znak*/
+   border: 1px solid #000;
+  padding: 10px 0px;
+  text-align: center;
+  min-height: 50px;
+}
+.wa {
+  overflow-x: auto;
+  width: 100%;
+}
+
+.known { /*boxy s preddefinovanými znakmi*/
+  color: #434343;
+}
+.unknown { /*boxy, ktoré vyplna hráč*/
+  color: #000;
+  font-weight: bold;
+}
+.unknown:hover {
+  background-color: #6292c6; /*farba stvorca na ktorom sa práve nachádza myš (modrá)*/
+  cursor: pointer;
+}
+
+.selected { /*vybraná bunka*/
+ 
+  background-color: #6292c6; /*farba štvorca vybraného hráčom*/
+  
+}
+.edited { 
+  background-color: cadetblue;
+  
+}
+
+.mode { /*box pre white mode/dark mode ikonky*/
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-item-align: start;
+  align-self: flex-start;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: start;
+  padding-top: 1em;
+  width: 50px;
+}
+
+.mode a {
+   text-decoration: none;
+  font-size: 14px;
+  margin-right: 0.5em;
+}
+
+.hyba { /*box pre mistakes*/
+  font-size: 20px;
+  line-height: 22px;
+  padding-bottom: 2em;
+}
+
+.hyba > .fas {
+  color: green;
+}
+
+ol li {
+  font-size: 21px;
+  line-height: 23.8px;
+}
+
+.rules {
+  padding-bottom: 3em;
+}
+
+/* Dark mode */
+
+.container.dark {/*definovanie novych farieb pre dark mode*/
+   background-color: #141414;
+  color: #a9a9a9 !important;
+}
+
+.container.dark a {
+  color: #a9a9a9;
+}
+
+.container.dark .table .row .known {
+  color: #a9a9a9;
+}
+
+.container.dark .userform label {
+  color: #fff;
+}
+
+.container.dark .userform input:active,
+.container.dark .userform input:focus {
+  outline: #fff;
+}
+
+.container.dark .table {
+  background-color: #1b1b1b;
+}
+
+.container.dark .table .row .selected,
+.container.dark .table .row .unknown:hover {
+  background-color: #244b75;
+}
+
+.container.dark .table .row .unknown {
+  color: #fff;
+}
+
+.container.dark .numbers div {
+  color: #a9a9a9;
+}
+
+
+/* znaky pod tabuľkou, skrz ktoré hráč vsádza znaky do hry */
+.numbers {
+  display: flex;	/* rozmery, kde sa čísla nachadzaju*/
+  display: -webkit-box;
+  display: -ms-flexbox;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  margin-bottom: 7em;
+  max-width: 900px;
+  padding: 14px auto;
+  width: 100%;
+}
+
+.numbers > div { /*definovanie farby znakov, veľkosti a ich umiestnenia v textovom poli*/
+  color: #434343; 
+  font-size: 30px;
+  line-height: 32px;
+  min-width: 30px;
+  padding: 4px 10px;
+  text-align: center;
+
+}
+/*výber čísla*/
+.numbers > div:hover{ /*zmena farba písma pod myšou*/
+    cursor: pointer;
+    color: #000;
+}
+
+
+/** User forms 
+    register / login
+*/
+
+.reg_form,
+.log_form {
+  display: none;
+  min-height: 60px;
+  max-width: 500px;
+  width: 100%;
+}
+
+#reg_result,
+#log_result {
+  margin-top: 0.5em;
+  margin-right: auto;
+  padding-left: 20px;
+}
+
+#register_form,
+#login_form {
+  opacity: all 0.5s;
+}
+
+#profile {
+  max-width: 400px;
+}
+
+.userform {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  max-width: 520px;
+  padding-top: 1em;
+  width: 100%;
+}
+
+.userform span,
+.userform a {
+  font-size: 14px;
+  text-decoration: none;
+  margin-right: 1rem;
+}
+
+.userform span:hover,
+.userform a:hover {
+  cursor: pointer;
+}
+
+.userform_field {
+  -ms-flex-item-align: center;
+  align-self: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: space-evenly;
+  -ms-flex-pack: space-evenly;
+  justify-content: space-evenly;
+  padding-right: 3px;
+}
+
+.userform_field__btn {
+  padding-top: 5px;
+}
+
+.userform label {
+  font-size: 14px;
+  color: #434343;
+  margin-bottom: 3px;
+}
+
+.userform input {
+  border: 1px solid #434343;
+  font-size: 12.6px;
+  padding: 4px 10px;
+}
+
+.userform button {
+  background-color: #a9a9a9;
+  border: 1px solid #434343;
+  color: #1b1b1b;
+  font-size: 14px;
+  height: 27px;
+  padding: 2px 10px;
+}
+
+.userform button:active {
+  border: 1px solid #1b1b1b;
+}
+
+.userform button:hover {
+  cursor: pointer;
+}
+
+.userform .error {
+  color: #f73636;
+  height: 16px;
+}
+
+/** Games table */
+
+.games {
+    border: 1px solid #222;
+    margin-bottom: 2em;
+    width: 300px;
+  }
+  
+  .games thead {
+    background-color: #a9a9a9;
+    border-bottom: 3px solid #222;
+  }
+  
+  .games tr {
+    border-bottom: 1px dotted #a9a9a9;
+  }
+  
+  .games td {
+    text-align: center;
+    padding: 5px;
+  }
+
+/** Winner info*/
+
+.win {
+  display: block;
+  font-size: 28px;
+  text-align: center;
+  width: 100%;
+}
+
+.win a {
+  display: block;
+  border: 2px solid #434343;
+  border-radius: 5px;
+  font-size: 22.4px;
+  float: left;
+  padding: 0.5em 2em;
+  margin-right: 1em;
+}
+
+.win_btn {
+  display: none;
+  font-size: 25.2px;
+  margin-bottom: 3em;
+  margin-top: 1em;
+}
+
+.win_btn__left {
+  float: left;
+}
+
+.win_btn__right {
+  float: right;
+}
+
+.win_btn > div {
+  text-align: center;
+  width: 45%;
+}
+
+.win_btn > div .link {
+  font-size: 18.2px;
+  max-width: 150px;
+  margin: 1em auto 0 auto;
+  border: 2px solid #434343;
+  border-radius: 10px;
+  padding: 1em;
+  text-decoration: none;
+}
+
+.win_btn > div .link:hover {
+  background-color: #434343;
+  border-color: #f2f2f2;
+  color: #f2f2f2;
+}
+
+.win_btn__result {
+  clear: both;
+  font-size: 19.6px;
+  font-weight: bold;
+  width: 100%;
+  text-align: center;
+}
+
+/** Footer */
+
+footer {
+  margin-top: auto;
+  padding-bottom: 2em;
+}
+
+footer p {
+  text-align: center;
+  font-size: 12.6px;
+}
+
+@media screen and (max-width: 1200px) {
+  .rules {
+    padding-left: 1em;
+  }
+
+  .rules {
+    padding-right: 1em;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  h1 {
+    font-size: 35px;
+  }
+
+  h1 {
+    line-height: 37.8px;
+  }
+
+  h2 {
+    font-size: 23.8px;
+  }
+
+  h2 {
+    line-height: 25.2px;
+  }
+
+  .container {
+    padding-left: 1em;
+  }
+
+  .container {
+    padding-right: 1em;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  h1 {
+    font-size: 28px;
+  }
+
+  h1 {
+    line-height: 30.8px;
+  }
+
+  .table {
+    font-size: 16.8px;
+  }
+
+  .table {
+    line-height: 19.6px;
+  }
+
+  .row div {
+    min-height: 35px;
+  }
+
+  .row div {
+    padding-top: 7px;
+  }
+
+  .row div {
+    padding-bottom: 7px;
+  }
+
+  .numbers {
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+  }
+
+  .numbers div {
+    font-size: 22.4px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  h1 {
+    margin-top: 0.5em;
+  }
+
+  #reg_result,
+  #log_result {
+    padding-left: 10px;
+  }
+
+  #register_form,
+  #login_form {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+
+  .userform_field {
+    -ms-flex-item-align: start;
+    align-self: flex-start;
+  }
+}
